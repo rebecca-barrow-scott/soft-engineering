@@ -1,4 +1,4 @@
-width, height = 390, 498
+width, height = 441, 504
 fps = 60
 
 intro_text_size_title = 40
@@ -7,10 +7,13 @@ intro_text_size = 20
 intro_font = 'Bahnschrift Light'
 
 #-#---COLORS---#-#
-red = (199, 59, 17)
+pacman_yellow = (248, 211, 10)
+ghost_pink = (253, 173, 167)
+ghost_cyan = (73, 223, 202)
+ghost_red = (199, 59, 17)
+ghost_orange = (255, 152, 48)
+black = (0, 0, 0)
+white = (255, 255, 255)
 purple = (113, 63, 159)
-yellow = (248, 211, 10)
 hot_pink = (200, 67, 82)
-pink = (253, 173, 167)
-cyan = (73, 223, 202)
 blue = (73, 174, 138)

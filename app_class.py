@@ -42,12 +42,12 @@ class App:
 
     def intro_draw(self):
         self.screen.fill((0, 0, 0))
-        self.draw_text('WELCOME TO PACMAN', self.screen, [width//2, height//2-97],intro_text_size_title, (199, 59, 17), intro_font)
-        self.draw_text('WELCOME TO PACMAN', self.screen, [width//2+2, height//2-100],intro_text_size_title, (113, 63, 159), intro_font)
-        self.draw_text('WELCOME TO PACMAN', self.screen, [width//2, height//2-100],intro_text_size_title, (248, 211, 10), intro_font)
-        self.draw_text('PRESS SPACEBAR TO START', self.screen, [width//2+1, height//2-49],intro_text_size_subtitle, (200, 67, 82), intro_font)
-        self.draw_text('PRESS SPACEBAR TO START', self.screen, [width//2, height//2-50],intro_text_size_subtitle, (253, 173, 167), intro_font)
-        self.draw_text('REBECCA BARROW-SCOTT', self.screen, [width//2, height-40],intro_text_size, (73, 223, 202), intro_font)
-        self.draw_text('3815 ICT SOFTWARE ENGINEERING', self.screen, [width//2, height-20],intro_text_size, (73, 174, 138), intro_font)
+        self.draw_text('WELCOME TO PACMAN', self.screen, [width//2, height//2-97],intro_text_size_title, red, intro_font)
+        self.draw_text('WELCOME TO PACMAN', self.screen, [width//2+2, height//2-100],intro_text_size_title, purple, intro_font)
+        self.draw_text('WELCOME TO PACMAN', self.screen, [width//2, height//2-100],intro_text_size_title, yellow, intro_font)
+        self.draw_text('PRESS SPACEBAR TO START', self.screen, [width//2+1, height//2-49],intro_text_size_subtitle, hot_pink, intro_font)
+        self.draw_text('PRESS SPACEBAR TO START', self.screen, [width//2, height//2-50],intro_text_size_subtitle, pink, intro_font)
+        self.draw_text('REBECCA BARROW-SCOTT', self.screen, [width//2, height-40],intro_text_size, cyan, intro_font)
+        self.draw_text('3815 ICT SOFTWARE ENGINEERING', self.screen, [width//2, height-20],intro_text_size, blue, intro_font)
 
         pygame.display.update()

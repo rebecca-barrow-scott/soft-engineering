@@ -13,11 +13,11 @@ class App:
         self.clock = pygame.time.Clock()
         self.running = True
         self.state = 'intro'
-        self.cell_width = maze_width//23
-        self.cell_height = maze_height//22
+        self.cell_width = maze_width//19
+        self.cell_height = maze_height//21
         self.player = Player(self, starting_pos)
-
         self.load()
+
 
     def run(self):
         while self.running:
@@ -49,10 +49,10 @@ class App:
         self.background = pygame.transform.scale(self.background, (maze_width, maze_height))
 
     def draw_grid(self):
-        for w in range(width):
-            pygame.draw.line(self.background, ghost_orange, (w*width//self.cell_width, 0), (w*width//self.cell_width, height))
-        for h in range(height):
-            pygame.draw.line(self.background, ghost_orange, (0, h*height//self.cell_height), (width, h*height//self.cell_height))
+        for w in range(width//self.cell_width):
+            pygame.draw.line(self.background, ghost_orange, (w*self.cell_width, 0), (w*self.cell_width, height))
+        for h in range(height//self.cell_height):
+            pygame.draw.line(self.background, ghost_orange, (0, h*self.cell_height), (width, h*self.cell_height))
 
     #-#-- STATE FUNCTIONS --#-#
     # INTRO
@@ -79,14 +79,25 @@ class App:
     # PLAYING
     def playing_events(self):
         for event in pygame.event.get():
+            # quit the game
             if event.type == pygame.QUIT:
                 self.running = False
-            else:
-                pass
+            # move player
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+                self.player.move(vector(-1, 0))
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+                self.player.move(vector(1, 0))
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+                self.player.move(vector(0, -1))
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+                self.player.move(vector(0, 1))
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_p:
+                self.player.move(vector(0, 0))
 
     def playing_update(self):
-        pass
+        self.player.update()
 
+    # creates the playing screen
     def playing_draw(self):
         self.screen.fill(black)
         self.screen.blit(self.background, (border_padding//2, border_padding//2))
@@ -95,4 +106,5 @@ class App:
         self.draw_text('1 2 3', [width-110, 15], intro_text_size_subtitle, white, intro_font)
         self.draw_text('3815 ICT MILESTONE 1: PROTOTYPE', [width//2, height-13], intro_text_size, hot_pink, intro_font)
         self.player.draw()
+
         pygame.display.update()

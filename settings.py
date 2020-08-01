@@ -1,6 +1,6 @@
 from pygame.math import Vector2 as vector
 border_padding = 50
-width, height = 549, 565
+width, height = 545, 555
 maze_width, maze_height = width-border_padding, height-border_padding
 fps = 60
 
@@ -23,4 +23,4 @@ hot_pink = (200, 67, 82)
 blue = (73, 174, 138)
 
 #-#---PLAYER__#-#
-starting_pos = vector(1, 1)
+starting_pos = vector(9, 11)

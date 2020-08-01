@@ -1,5 +1,9 @@
-width, height = 441, 504
+from pygame.math import Vector2 as vector
+border_padding = 50
+width, height = 549, 565
+maze_width, maze_height = width-border_padding, height-border_padding
 fps = 60
+
 
 intro_text_size_title = 40
 intro_text_size_subtitle = 30
@@ -17,3 +21,6 @@ white = (255, 255, 255)
 purple = (113, 63, 159)
 hot_pink = (200, 67, 82)
 blue = (73, 174, 138)
+
+#-#---PLAYER__#-#
+starting_pos = vector(1, 1)

@@ -9,16 +9,17 @@ class Player:
                                      (border_padding//2 + self.grid_position.y * self.app.cell_height) + self.app.cell_height // 2)
         self.path = vector(1, 0)
         self.stored_path = None
+        self.radius = self.app.cell_width // 2 - 3
 
     def update(self):
         # move the point position
         self.point_position += self.path
-        if int(self.point_position.x+border_padding//2) % self.app.cell_width == 0:
+        if (int(self.point_position.x-self.radius) % self.app.cell_width) == 0:
             if self.path == vector(1, 0) or self.path == vector(-1, 0):
                 if self.stored_path is not None:
                     self.path = self.stored_path
 
-        if int(self.point_position.y+border_padding//2) % self.app.cell_height == 0:
+        if (int(self.point_position.y-self.radius) % self.app.cell_height) == 0:
             if self.path == vector(0, 1) or self.path == vector(0, -1):
                 if self.stored_path is not None:
                     self.path = self.stored_path
@@ -36,7 +37,7 @@ class Player:
         pygame.draw.circle(self.app.screen,
                            pacman_yellow,
                            (int(self.point_position.x), int(self.point_position.y)),
-                           (self.app.cell_width // 2) - 3)
+                           (self.radius))
         #draw tracking rect
         pygame.draw.rect(self.app.screen, ghost_red, (self.grid_position[0] * self.app.cell_width + border_padding // 2,
                                                       self.grid_position[1] * self.app.cell_height + border_padding // 2,

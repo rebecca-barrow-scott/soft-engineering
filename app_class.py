@@ -3,6 +3,7 @@ import sys
 
 from settings import *
 from player import *
+from map import *
 
 pygame.init()
 vector = pygame.math.Vector2
@@ -16,6 +17,7 @@ class App:
         self.cell_width = maze_width//19
         self.cell_height = maze_height//21
         self.player = Player(self, starting_pos)
+        self.map = Map(self)
         self.load()
 
 
@@ -106,5 +108,6 @@ class App:
         self.draw_text('1 2 3', [width-110, 15], intro_text_size_subtitle, white, intro_font)
         self.draw_text('3815 ICT MILESTONE 1: PROTOTYPE', [width//2, height-13], intro_text_size, hot_pink, intro_font)
         self.player.draw()
+        self.map.draw()
 
         pygame.display.update()
